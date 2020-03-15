@@ -65,10 +65,13 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: auto;
 }
 
 .request-card-image {
+    width: 100%;
     max-width: 500px;
+    height: auto;
 }
 
 .request-card-footer{
@@ -81,7 +84,7 @@ a {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 44px;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -107,4 +110,33 @@ a {
     font-size: 20px;
     color: #3F51B5;
     margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .page-title-logo{
+        font-size: 30px;
+        line-height: 35px;
+        margin-top: 10px;
+        margin-right: 10px;
+        text-align: right;
+    }
+    .page-subtitle-logo{
+        font-size: 14px;
+        line-height: 18px;
+        margin-right: 10px;
+        text-align: right;
+    }
+    .main-title-question{
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .sub-title-question {
+        font-size: 24px;
+    }
+    .request-card-title {
+        font-size: 16px;
+    }
+    .request-card {
+        max-width: 100%;
+    }
 }
