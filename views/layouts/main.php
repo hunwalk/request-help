@@ -33,6 +33,19 @@ AppAsset::register($this);
     </a>
 </div>
 
+<div class="top-container">
+    <div class="language-container">
+        <span class="top-container-title"><?= Yii::t('app', 'Language') ?></span>
+        <div class="language-selector-container">
+
+            <a href="#!" class="language-selector <?= Yii::$app->language === 'sk' ? 'selected' : ''?>"><?= Yii::t('app', 'Slovak')?></a>
+            <a href="#!" class="language-selector <?= Yii::$app->language === 'hu' ? 'selected' : ''?>"><?= Yii::t('app', 'Hungarian')?></a>
+        </div>
+    </div>
+
+</div>
+
+
 <div class="container">
     <?= $content ?>
 </div>
