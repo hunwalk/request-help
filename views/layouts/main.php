@@ -38,8 +38,14 @@ AppAsset::register($this);
         <span class="top-container-title"><?= Yii::t('app', 'Language') ?></span>
         <div class="language-selector-container">
 
-            <a href="#!" class="language-selector <?= Yii::$app->language === 'sk' ? 'selected' : ''?>"><?= Yii::t('app', 'Slovak')?></a>
-            <a href="#!" class="language-selector <?= Yii::$app->language === 'hu' ? 'selected' : ''?>"><?= Yii::t('app', 'Hungarian')?></a>
+            <a href="#!" data-language="sk" class="language-selector <?= Yii::$app->language === 'sk' ? 'selected' : ''?>">
+                <?= Yii::t('app', 'Slovak')?>
+            </a>
+
+            <a href="#!" data-language="hu" class="language-selector <?= Yii::$app->language === 'hu' ? 'selected' : ''?>">
+                <?= Yii::t('app', 'Hungarian')?>
+            </a>
+
         </div>
     </div>
 
@@ -49,6 +55,25 @@ AppAsset::register($this);
 <div class="container">
     <?= $content ?>
 </div>
+
+<?php \richardfan\widget\JSRegister::begin() ?>
+<script>
+    $(document).ready(function () {
+        $('.language-selector').on('click', function (e) {
+
+            e.preventDefault();
+
+            $.post('/language/change',{
+                language: $(this).attr('data-language')
+            },
+            function(){
+                window.location.reload()
+            });
+
+        })
+    })
+</script>
+<?php \richardfan\widget\JSRegister::end() ?>
 
 <?php $this->endBody() ?>
 </body>
