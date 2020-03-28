@@ -17,6 +17,9 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
+        $cookies = $app->request->cookies;
+        $app->language = $cookies->getValue('RH_LANGUAGE','sk');
+
         Event::on(
             RegistrationController::className(),
             RegistrationController::EVENT_BEFORE_REGISTER,
